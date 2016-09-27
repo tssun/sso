@@ -1,0 +1,17 @@
+group 'org.sts.sso'
+version '1.0'
+
+//apply plugin: 'java'
+//apply from: 'dependency.gradle'
+
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(
+
+    )
+}

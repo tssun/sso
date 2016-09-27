@@ -1,0 +1,5 @@
+rootProject.name = 'sts'
+
+include 'sso-common'
+include 'sso-dao'
+include 'sso-core'
