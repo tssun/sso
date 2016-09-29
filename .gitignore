@@ -10,7 +10,7 @@
 .class
 .springBeans
 .settings/
-target/
+out/
 src/main/webapp/node_modules/
 
 # maven ignore
