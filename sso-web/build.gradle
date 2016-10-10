@@ -19,7 +19,7 @@ repositories {
 
 dependencies {
 //    compile project(':sso-common')
-    providedCompile project(':sso-core')
+    compile project(':sso-core')
     compile fileTree(dir:"libs",include:"*.jar")
 
     compile "org.springframework:spring-webmvc:$springVersion"

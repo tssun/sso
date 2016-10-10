@@ -13,4 +13,9 @@
 
     <context:component-scan base-package="org.sts.sso.*"/>
 
+    <bean id="urlBasedViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+          p:viewClass="org.springframework.web.servlet.view.InternalResourceView"
+          p:prefix="/WEB-INF/view/jsp/"
+          p:suffix=".jsp"
+          p:order="2000"/>
 </beans>
