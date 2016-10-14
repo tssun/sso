@@ -4,7 +4,7 @@
 	  xsi:schemaLocation="http://www.springframework.org/schema/webflow
 						  http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
  
-	<var name="customers" class="com.paner.pizza.domain.Customer" />
+	<var name="customers" class="org.sts.sso.pizza.model.Customer" />
 	
 	<!-- 欢迎顾客 -->
 	<view-state id="welcome" >
@@ -16,7 +16,7 @@
    	<evaluate result="customers" expression=
    							"pizzaFlowActions.lookupCustomer(requestParameters.phoneNumber)"></evaluate>
    	<transition to="registrationForm" on-exception=
-   							"com.paner.pizza.service.CustomerNotFoundException"></transition>
+   							"org.sts.sso.pizza.service.CustomerNotFoundException"></transition>
    	<transition to="customerReady"></transition>
    </action-state>
 	

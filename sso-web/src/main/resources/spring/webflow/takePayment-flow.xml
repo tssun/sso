@@ -9,9 +9,9 @@
 	<view-state id="takePayment" model="flowScope.paymentDetails">
 		<on-entry>
 			<set name="flowScope.paymentDetails" 
-					value="new com.paner.pizza.domain.PaymentDetails()"></set>
+					value="new org.sts.sso.pizza.model.PaymentDetails()"></set>
 			<evaluate result="viewScope.paymentTypeList"
-					expression="T(com.paner.pizza.domain.PaymentType).asList()"></evaluate>
+					expression="T(org.sts.sso.pizza.model.PaymentType).asList()"></evaluate>
 		</on-entry>
 		<transition on="paymentSubmitted" to="verifyPayment"></transition>
 		<transition on="cancel" to="cancel"></transition>
