@@ -6,6 +6,9 @@
 <title>Spizza</title>
 </head>
 <body>
-	<h2>欢迎来到Spizza!</h2>
+	<h2>地址不可达</h2>
+	<p>不好意思，你的地址不在我们的配送范围内；若继续订购，请到店里来自取。</p>
+	<a href="${flowExecutorUrl}&_eventId=accpet">继续，我将自己取。</a>
+	<a href="${flowExecutorUrl}&_eventId=cancel">取消订单</a>
 </body>
 </html>

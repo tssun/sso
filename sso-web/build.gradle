@@ -26,6 +26,10 @@ dependencies {
     compile "javax.servlet:jstl:$jstlVersion"
     compile "commons-beanutils:commons-beanutils:$beanutilsVersion"
 
+    compile group: 'org.springframework.webflow', name: 'spring-webflow', version: '2.4.4.RELEASE'
+    compile group: 'org.springframework.webflow', name: 'spring-binding', version: '2.4.4.RELEASE'
+    compile group: 'org.springframework.webflow', name: 'spring-js', version: '2.4.4.RELEASE'
+
 
     providedCompile "javax.servlet:servlet-api:$servletVersion"
 

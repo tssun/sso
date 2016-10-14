@@ -6,6 +6,7 @@
 <title>Spizza</title>
 </head>
 <body>
-	<h2>欢迎来到Spizza!</h2>
+	<h2>谢谢惠顾！</h2>
+	<a href="${flowExecutorUrl}&_eventId=finished">完成订单</a>
 </body>
 </html>
