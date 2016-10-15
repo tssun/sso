@@ -3,11 +3,15 @@
       xmlns="http://www.springframework.org/schema/webflow"
       xsi:schemaLocation="http://www.springframework.org/schema/webflow
                           http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+    <!--<on-start>-->
+        <!--<evaluate expression="initialFlowSetupAction"/>-->
+    <!--</on-start>-->
 
     <view-state id="login">
         <transition on="second" to="second"/>
         <transition on="cancel" to="thankYou"/>
     </view-state>
+
 
     <view-state id="thankYou">
         <transition to="endState" />

@@ -17,12 +17,14 @@
     http://www.springframework.org/schema/webflow-config
     http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.4.xsd">
 
+    <context:component-scan base-package="org.sts.sso"/>
     <context:annotation-config/>
+    <mvc:annotation-driven/>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver"
-          p:viewClass="org.springframework.web.servlet.view.InternalResourceView"
-          p:prefix="/WEB-INF/view/jsp/"
-          p:suffix=".jsp"
-          p:order="2000"/>
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/view/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
 
 </beans>
