@@ -1,0 +1,46 @@
+<!--suppress UnparsedCustomBeanInspection -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:flow="http://www.springframework.org/schema/webflow-config"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/webflow-config
+           http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:component-scan base-package="org.sts.sso.login" />
+
+    <flow:flow-builder-services id="flowBuilderServices" view-factory-creator="viewFactoryCreator" />
+
+    <!-- Executes flows: the entry point into the Spring Web Flow system -->
+    <flow:flow-executor id="flowExecutor" flow-registry="flowRegistry" />
+
+    <!-- The registry of executable flow definitions -->
+    <flow:flow-registry id="flowRegistry" flow-builder-services="flowBuilderServices">
+        <!--<flow:flow-location-pattern value="/*-flow.xml" />-->
+        <flow:flow-location path="/WEB-INF/spring/webflow/login-webflow.xml" id="login" />
+    </flow:flow-registry>
+
+    <!--Maps request paths to flows in the flowRegistry-->
+    <bean class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
+        <property name="flowRegistry" ref="flowRegistry" />
+    </bean>
+
+    <!--
+     Dispatches requests mapped to flows to FlowHandler implementations
+    -->
+    <bean  class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
+        <property name="flowExecutor" ref="flowExecutor" />
+    </bean>
+
+    <bean id="viewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
+        <property name="viewResolvers">
+            <util:list>
+                <ref bean="viewResolver"/>
+            </util:list>
+        </property>
+    </bean>
+
+</beans>

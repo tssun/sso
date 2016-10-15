@@ -6,16 +6,11 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app.xsd"
          version="2.5">
     <display-name>sts</display-name>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
-
     <!-- 读取相关的配置 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath*:/spring/*.xml</param-value>
+        <param-value>/WEB-INF/spring/applicationContext.xml</param-value>
     </context-param>
-
     <!-- spring mvc -->
     <servlet>
         <servlet-name>sso</servlet-name>
@@ -24,7 +19,10 @@
         </servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:/spring/sso-servlet.xml</param-value>
+            <param-value>
+                /WEB-INF/spring/sso-servlet.xml
+                /WEB-INF/spring/webflowContext.xml
+            </param-value>
         </init-param>
         <init-param>
             <param-name>publishContext</param-name>
@@ -36,5 +34,4 @@
         <servlet-name>sso</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
 </web-app>

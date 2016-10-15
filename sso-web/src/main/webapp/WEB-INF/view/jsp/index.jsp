@@ -3,9 +3,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Spizza</title>
+<title>Sts</title>
 </head>
 <body>
-	<h2>欢迎来到Spizza!</h2>
+	<h2>welcome sts!</h2>
 </body>
 </html>
