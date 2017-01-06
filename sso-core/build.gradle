@@ -1,17 +1,12 @@
 group 'org.sts.core'
 
-
-repositories {
-    mavenCentral()
-}
-
 dependencies {
 //    compile project(':sso-web')
 
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.4'
+//    compile libraries.thymeleafdialect
+//    compile libraries.thmyeleaf
 
-//    compile group: 'javax.servlet', name: 'servlet-api', version: '2.5'
 
-    compile group: 'org.springframework.webflow', name: 'spring-webflow', version: '+'
+
 
 }

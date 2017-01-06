@@ -1,6 +1,8 @@
-rootProject.name = 'sts'
+rootProject.name = 'sso'
 
 include 'sso-common'
 include 'sso-dao'
 include 'sso-core'
 include 'sso-web'
+include 'sso-auth'
+

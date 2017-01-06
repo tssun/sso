@@ -1,0 +1,6 @@
+group 'org.sts.sso'
+
+dependencies {
+//    compile project(':sso-core')
+    compile project(':sso-common')
+}

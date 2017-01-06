@@ -1,38 +1,30 @@
-group 'org.sts.web'
-
 apply plugin: 'war'
 
-ext {
-    springVersion = "4.+"
-    jstlVersion = '1.2'
-    beanutilsVersion = '1.9.2'
-    servletVersion = '2.5'
-    junitVersion = '+'
-}
-
-
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-}
-
 dependencies {
-//    compile project(':sso-common')
+    compile project(':sso-common')
+    compile project(':sso-auth')
     compile project(':sso-core')
-    compile fileTree(dir:"libs",include:"*.jar")
-
-    compile "org.springframework:spring-webmvc:$springVersion"
-    compile "javax.servlet:jstl:$jstlVersion"
-    compile "commons-beanutils:commons-beanutils:$beanutilsVersion"
-
-    compile group: 'org.springframework.webflow', name: 'spring-webflow', version: '2.4.4.RELEASE'
-    compile group: 'org.springframework.webflow', name: 'spring-binding', version: '2.4.4.RELEASE'
-    compile group: 'org.springframework.webflow', name: 'spring-js', version: '2.4.4.RELEASE'
 
 
-    providedCompile "javax.servlet:servlet-api:$servletVersion"
 
-    testCompile "junit:junit:$junitVersion"
+
+
+
+    runtime(group: 'org.jasig', name: 'spring-webflow-client-repo', version: '1.0.1') {
+        exclude(group: "log4j", module: "log4j")
+        exclude(group: "org.slf4j", module: "slf4j-api")
+        exclude(group: "org.slf4j", module: "slf4j-log4j12")
+        exclude(group: "org.springframework.webflow", module: "spring-webflow")
+        exclude(group: "commons-codec", module: "commons-codec")
+        exclude(group: "org.springframework", module: "spring-core")
+        exclude(group: "org.springframework", module: "spring-beans")
+        exclude(group: "org.slf4j", module: "jcl-over-slf4j")
+        exclude(group: "org.cryptacular", module: "cryptacular")
+        exclude(group: "org.bouncycastle", module: "bcprov-jdk15on")
+        exclude(group: "org.bouncycastle", module: "bcpkix-jdk15on")
+    }
+
+    runtime group: 'com.mchange', name: 'c3p0', version: c3p0Version
+    runtime group: 'com.oracle', name: 'ojdbc6', version: '11.2.0.3'
 
 }
