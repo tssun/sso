@@ -8,7 +8,7 @@
         <p>Powered by <a href="http://www.apereo.org/cas">
             Apereo Central Authentication Service <%=org.sts.sso.SsoVersion.getVersion()%></a>
             <%=org.sts.sso.SsoVersion.getDateTime()%></p>
-  </div>
+  </div>1
 </footer>
 
 </div> <!-- END #container -->
