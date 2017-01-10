@@ -52,6 +52,10 @@ subprojects {
         compile libraries.jodatime
         compile libraries.inspektr
         compile libraries.quartz
+        compile libraries.metrics
+        compile libraries.inspektr
+        compile libraries.httpclient
+        compile libraries.persondirectory
 
     }
 
