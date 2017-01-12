@@ -12,7 +12,6 @@
 
     <context:component-scan base-package="org.sts.sso" />
     <context:annotation-config/>
-    <!--<mvc:annotation-driven/>-->
 
     <mvc:annotation-driven>
         <mvc:path-matching path-helper="urlPathHelperWeb" trailing-slash="true" />
@@ -62,13 +61,6 @@
 
     <bean id="passThroughController" class="org.springframework.web.servlet.mvc.UrlFilenameViewController"/>
 
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"-->
-        <!--p:order="0"/>-->
-
-    <!--<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"-->
-        <!--p:order="0"/>-->
-
-
     <util:list id="jpaServicePackagesToScan">
         <value>org.sts.sso.services</value>
         <!--<value>org.jasig.cas.support.oauth.services</value>-->
@@ -93,8 +85,7 @@
         </property>
     </bean>
 
-    <bean
-            id="dataSourceService"
+    <bean id="dataSourceService"
             class="com.mchange.v2.c3p0.ComboPooledDataSource"
             p:driverClass="${svcreg.database.driverClass:oracle.jdbc.OracleDriver}"
             p:jdbcUrl="${svcreg.database.url:jdbc:oracle:thin:@172.16.7.43:1521:urpdb}"
