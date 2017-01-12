@@ -1,5 +1,6 @@
 package org.sts.sso.authentication.handler.support;
 
+import org.pac4j.core.exception.HttpAction;
 import org.sts.sso.authentication.*;
 import org.sts.sso.authentication.principal.Principal;
 
@@ -46,7 +47,7 @@ public abstract class AbstractPreAndPostProcessingAuthenticationHandler extends 
      **/
     @Override
     public final HandlerResult authenticate(final Credential credential)
-            throws GeneralSecurityException, PreventedException {
+            throws GeneralSecurityException, PreventedException, HttpAction {
 
         if (!preAuthenticate(credential)) {
             throw new FailedLoginException();
@@ -68,7 +69,7 @@ public abstract class AbstractPreAndPostProcessingAuthenticationHandler extends 
      * @throws PreventedException On the indeterminate case when authentication is prevented.
      */
     protected abstract HandlerResult doAuthentication(Credential credential)
-            throws GeneralSecurityException, PreventedException;
+            throws GeneralSecurityException, PreventedException, HttpAction;
 
     /**
      * Helper method to construct a handler result

@@ -1,5 +1,7 @@
 package org.sts.sso.authentication;
 
+import org.pac4j.core.exception.HttpAction;
+
 import java.security.GeneralSecurityException;
 
 /**
@@ -47,7 +49,7 @@ public interface AuthenticationHandler {
      * @throws PreventedException On errors that prevented authentication from occurring. Implementing classes SHOULD
      * take care to populate the cause, where applicable, with the error that prevented authentication.
      */
-    HandlerResult authenticate(Credential credential) throws GeneralSecurityException, PreventedException;
+    HandlerResult authenticate(Credential credential) throws GeneralSecurityException, PreventedException, HttpAction;
 
     /**
      * Determines whether the handler has the capability to authenticate the given credential. In practical terms,

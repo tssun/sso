@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Counted;
 import com.codahale.metrics.annotation.Metered;
 import com.codahale.metrics.annotation.Timed;
 import org.apereo.inspektr.audit.annotation.Audit;
+import org.pac4j.core.exception.HttpAction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -225,6 +226,8 @@ public class PolicyBasedAuthenticationManager implements AuthenticationManager {
                     } catch (final PreventedException e) {
                         logger.error("{}: {}  (Details: {})", handler.getName(), e.getMessage(), e.getCause().getMessage());
                         builder.addFailure(handler.getName(), e.getClass());
+                    } catch (HttpAction httpAction) {
+                        httpAction.printStackTrace();
                     }
                 }
             }
@@ -268,7 +271,7 @@ public class PolicyBasedAuthenticationManager implements AuthenticationManager {
      */
     private void authenticateAndResolvePrincipal(final AuthenticationBuilder builder, final Credential credential,
                                                  final PrincipalResolver resolver, final AuthenticationHandler handler)
-            throws GeneralSecurityException, PreventedException {
+            throws GeneralSecurityException, PreventedException, HttpAction {
 
         Principal principal;
         final HandlerResult result = handler.authenticate(credential);
