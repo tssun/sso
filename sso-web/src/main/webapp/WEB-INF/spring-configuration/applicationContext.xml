@@ -3,11 +3,11 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
-       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:ldaptive="http://www.ldaptive.org/schema/spring-ext"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.ldaptive.org/schema/spring-ext http://www.ldaptive.org/schema/spring-ext.xsd">
 
 
     <context:component-scan base-package="org.sts.sso" />
@@ -79,7 +79,7 @@
         <property name="jpaProperties">
             <props>
                 <prop key="hibernate.dialect">${svcreg.database.dialect:org.hibernate.dialect.OracleDialect}</prop>
-                <prop key="hibernate.hbm2ddl.auto">${svcreg.database.ddl.auto:create-drop}</prop>
+                <prop key="hibernate.hbm2ddl.auto">${svcreg.database.ddl.auto:update}</prop>
                 <prop key="hibernate.jdbc.batch_size">${svcreg.database.batchSize:1}</prop>
             </props>
         </property>
@@ -110,5 +110,6 @@
 
     <bean id="transactionManagerServiceReg" parent="abstractServiceTransactionManager"
           p:entityManagerFactory-ref="serviceEntityManagerFactory" />
+
 
 </beans>

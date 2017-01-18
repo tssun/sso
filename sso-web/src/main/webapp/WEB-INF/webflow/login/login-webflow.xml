@@ -85,6 +85,7 @@
         To enable AUP workflows, replace the 'success' transition with the following:
         <transition on="success" to="acceptableUsagePolicyCheck" />
         -->
+        <!--<transition on="success" to="acceptableUsagePolicyCheck" />-->
         <transition on="success" to="sendTicketGrantingTicket"/>
         <transition on="successWithWarnings" to="showMessages"/>
         <transition on="authenticationFailure" to="handleAuthenticationFailure"/>

@@ -59,7 +59,7 @@ public class RegisteredServiceResource {
     @RequestMapping(value = "/v1/services/add/test")
     public final ResponseEntity<String> createService(@ModelAttribute final ServiceDataHolder serviceDataHolder) {
         try {
-            String tgtId = "TGT-1-K69i4n7Qo2edc4KNEuEutCeXCayeVKc1FdcCasoY9o9YtxaYxe-cas01.example.org";
+            String tgtId = "TGT-1-wf5N6LjA2dVAIhNj941CfuBAcFnGIyx2RwKadn34e03U4tjQpJ-cas01.example.org";
 
             if (StringUtils.isBlank(this.attributeName) || StringUtils.isBlank(this.attributeValue)) {
                 throw new IllegalArgumentException("Attribute name and/or value must be configured");

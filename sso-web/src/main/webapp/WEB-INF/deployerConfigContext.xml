@@ -7,11 +7,12 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:ldaptive="http://www.ldaptive.org/schema/spring-ext"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+       http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.ldaptive.org/schema/spring-ext http://www.ldaptive.org/schema/spring-ext.xsd">
 
     <alias name="neverThrottle" alias="authenticationThrottle" />
     <alias name="serviceThemeResolver" alias="themeResolver" />
@@ -26,32 +27,24 @@
 
     <util:map id="authenticationHandlersResolvers">
         <entry key-ref="proxyAuthenticationHandler" value-ref="proxyPrincipalResolver" />
-        <entry key-ref="primaryAuthenticationHandler" value-ref="primaryPrincipalResolver" />
+        <!--<entry key-ref="primaryAuthenticationHandler" value-ref="primaryPrincipalResolver" />-->
+        <entry key-ref="ldapAuthenticationHandler" value-ref="primaryPrincipalResolver" />
     </util:map>
 
+    <alias name="ldapPasswordPolicyConfiguration" alias="passwordPolicyConfiguration" />
+
+
     <alias name="acceptUsersAuthenticationHandler" alias="primaryAuthenticationHandler" />
+
+    <alias name="ldapAcceptableUsagePolicyRepository" alias="acceptableUsagePolicyRepository" />
+
+
 
     <alias name="personDirectoryPrincipalResolver" alias="primaryPrincipalResolver" />
     <alias name="jpaServiceRegistryDao" alias="serviceRegistryDao" />
 
-    <bean id="attributeRepository" class="org.apereo.services.persondir.support.NamedStubPersonAttributeDao"
-          p:backingMap-ref="attrRepoBackingMap" />
 
-    <util:map id="attrRepoBackingMap">
-        <entry key="uid" value="uid" />
-        <entry key="eduPersonAffiliation" value="eduPersonAffiliation" />
-        <entry key="groupMembership" value="groupMembership" />
-        <entry>
-            <key><value>memberOf</value></key>
-            <list>
-                <value>faculty</value>
-                <value>staff</value>
-                <value>org</value>
-            </list>
-        </entry>
-    </util:map>
 
     <util:list id="authenticationMetadataPopulators" />
-
 
 </beans>
